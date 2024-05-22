@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="intro-section text-center">
+    <h1>Đây là trang Login</h1>
+    <p>Trang này iển thị xác nhận thanh toán và cảm ơn bạn đã đặt hằng</p>
+  </div>
+  <form #loginForm = "ngForm">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="login-form mx-auto">
+        <h2 class="login-header">Đăng nhập</h2>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="form-label">Phone number</label>
+          <input type="text" class="form-control"   [(ngModel)]="phoneNumber" name="phoneNumber" (input)="onPhoneNumberChange()" (input)="loginForm.form.markAsTouched()" required>
+          <div class="divider-nospace"></div>
+        </div>
+        <div class="mt-5"></div>
+        <div class="form-group password-filed">
+          <label for="exampleInputEmail1" class="form-label">Mật khẩu</label>
+          <input type="password" class="form-control"  placeholder="Ít nhất 3 kí tự" [(ngModel)]="password" required name="password">
+          <i class="password-toggle fas fa-eye-slash"></i>
+          <div class="divider-nospace"></div>
+        </div>
+        <div class="form-group">
+          <div class="form-check checkbox-text">
+            <span style="display: flex;">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remenberMe">
+              <label class="form-check-label text-start" for="exampleCheck1">Remeber me?</label>
+            </span>
+            <a href="#" class="register-link">Fogot password</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <select name="selectedRole" id="" class="form-control access-right" [(ngModel)]="selectedRole">
+            <option value="" selected disabled>Quyền đăng nhập</option>
+            <option value="" *ngFor="let role of roles" [ngValue]="role.id">{{role.name}}</option>
+          </select>
+        </div>
+        <button type="button" class="login-button" (click)="login()">Đăng nhập</button>
+        <div class="divider"></div>
+        <p class="text-center">Bạn chưa đăng ký?</p>
+        <span>
+        <a href="" class="register-link">Tạo tài khoản</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
